@@ -1,5 +1,5 @@
 Flask==0.10.1
-Flask-Restless==1.12.0-dev
+git+git://github.com/goodscloud/flask-restless
 Flask-SQLAlchemy==0.16
 Jinja2==2.7
 MarkupSafe==0.18
