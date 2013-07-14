@@ -11,6 +11,7 @@ app.config['DEBUG'] = True
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = flask.ext.sqlalchemy.SQLAlchemy(app)
+db.create_all()
 
 
 class Favorite(db.Model):
