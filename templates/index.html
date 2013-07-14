@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Backbone.js Favorites</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='assets/css/todos.css')}}"/>
+  <link rel="stylesheet" href="{{url_for('static', filename='assets/css/colorbox.css')}}"/>
+</head>
+
+<body>
+
+  <div id="todoapp">
+
+    <header>
+      <h1>Favorites</h1>
+      <input id="new-todo" type="text" placeholder="What do you want to name your favorite?">
+      <input id="new-todo-address" type="text" placeholder="What's the address?">
+    </header>
+
+    <section id="main">
+      <!--<input id="toggle-all" type="checkbox">-->
+      <!--<label for="toggle-all">Mark all as complete</label>-->
+      <ul id="todo-list"></ul>
+    </section>
+
+    <footer>
+      <!--<a id="clear-completed">Clear completed</a>-->
+      <!--<div id="todo-count"></div>-->
+      Woohoo!
+    </footer>
+
+  </div>
+
+  <div id="instructions">
+    Click to display map.
+  </div>
+
+  <div id="credits">
+    Based heavily on "Todos" by
+    <br />
+    <a href="http://jgn.me/">J&eacute;r&ocirc;me Gravel-Niquet</a>.
+    <br />Rewritten by: <a href="http://addyosmani.github.com/todomvc">TodoMVC</a>.
+  </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.0/underscore-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        <script src="{{url_for('static', filename='assets/js/jquery.colorbox-min.js')}}"></script>
+        <script src="{{url_for('static', filename='assets/js/todos.js')}}"></script>
+
+  <!-- Templates -->
+
+  <script type="text/template" id="item-template">
+    <div class="view">
+      <label><%- nickname %></label>
+      <a class="destroy"></a>
+      <a class="edit_button"></a>
+    </div>
+    <input class="edit" type="text" value="<%- nickname %>" placeholder="address?"/>
+  </script>
+
+  <script type="text/template" id="stats-template">
+    <% if (done) { %>
+      <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? 'item' : 'items' %></a>
+    <% } %>
+    <div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
+  </script>
+
+  </body>
+</html>
